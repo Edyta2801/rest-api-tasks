@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## Zadanie 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Napisz komponent User, który będzie wyświetlał informacje o użytkowniku:
 
-## Available Scripts
+* imię
+* nazwisko
+* adres (ulica, miasto)
+* adres email
+* datę rejestracji w systemie sformatowaną w przyjazny do czytania    sposób (np. poniedziałek, 11 maja)
+* zdjęcie profilowe
 
-In the project directory, you can run:
+Skorzystaj do tego z API Random User, aby pobrać listę 10 użytkowników i przechowywać ją w komponencie UserList. Ten komponent będzie posiadał iterację i będzie wykorzystywał komponenty User.
 
-### `npm start`
+Jeżeli nie jest przekazany adres, należy wpisać tekst brak. Jeżeli nie przekaże się imienia lub nazwiska, wówczas wyświetl komunikat: Nie przekazano imienia i nazwiska.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Zadanie 2
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mając listę użytkowników w komponencie UserList, stwórz nową ścieżkę url w aplikacji (np. /users/:id), która będzie wykorzystywała komponent UserDetails aby wyświetlić informacje o pojedynczym użytkowniku (możesz do tego wykorzystać komponent User). W tym zadaniu nie masz API do pobrania poszczególnego użytkownika, więc jego dane musisz przekazać z poziomu listy.
 
-### `npm test`
+### Modyfikacja
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Możesz opóźnić ładowanie danych z API (np. korzystając z setTimeout) i wykorzystać bibliotekę React Placeholder, aby pokazać miejsca, w których dane się pojawią.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Zadanie 3
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Na podstawie Zadania 1 i 2 oraz informacji o lokalizacji użytkownika z API:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`"location": {
+  "street": "9278 new road",
+  "city": "kilcoole",
+  "state": "waterford",
+  "postcode": "93027",
+  "coordinates": {
+    "latitude": "20.9267",
+    "longitude": "-7.9310"
+  },
+  "timezone": {
+    "offset": "-3:30",
+    "description": "Newfoundland"
+  }
+}`
 
-### `npm run eject`
+wyświetl na mapie jego położenie. Wykorzystaj do tego Leaflet oraz opcjonalnie React Leaflet.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
