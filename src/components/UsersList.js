@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import "../App.css";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -9,14 +11,25 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 // import Typography from '@material-ui/core/Typography';
 
+
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        maxWidth: '36ch',
+        maxWidth: '258px',
         backgroundColor: theme.palette.background.paper,
+        marginLeft: '10px',
+
     },
-    inline: {
-        display: 'inline',
+    link: {
+        all: 'unset',
+
+    },
+    button: {
+        '&:hover': {
+            backgroundColor: '#e7e7ec',
+        }
     },
 }));
 
@@ -44,19 +57,21 @@ function UsersList() {
 
     console.log(users);
 
+
     return (
         <div className='Users'>
             <List className={classes.root}>
                 {isLoading && <p>Loading...</p>}
                 {hasError && <p>An error has occurred</p>}
                 {users.map(user => (
-                    <ListItem alignItems="flex-start" key={user.login}>
+                    <ListItem alignItems="flex-start" key={user.login.uuid} button className={classes.button}>
                         <ListItemAvatar>
                             <Avatar alt="" src={user.picture.thumbnail} />
                         </ListItemAvatar>
-                        <ListItemText
-                            primary={`${user.name.first} ${user.name.last}`}
-                            secondary={user.location.country} />
+                        <Link to={`/users/${user.login.uuid}`} className={classes.link} >
+                            <ListItemText
+                                primary={`${user.name.first} ${user.name.last}`}
+                                secondary={user.location.country} /></Link>
                     </ListItem>
                 ))}
             </List>
